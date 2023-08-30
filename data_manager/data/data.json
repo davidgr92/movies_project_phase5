@@ -1,0 +1,165 @@
+[
+    {
+        "id": 1,
+        "name": "David",
+        "email": "david@gmail.com",
+        "hashed_password": "",
+        "movies": [
+            {
+                "id": 1,
+                "name": "Inception",
+                "director": "Christopher Nolan",
+                "year": "2010",
+                "rating": "8.8",
+                "genre": "Action, Adventure, Sci-Fi",
+                "img": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+                "country": "United States, United Kingdom",
+                "alpha_2": "US",
+                "imdbID": "tt1375666"
+            },
+            {
+                "id": 2,
+                "name": "The Dark Knight",
+                "director": "Christopher Nolan",
+                "year": "2008",
+                "rating": "9.0",
+                "genre": "Action, Crime, Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+                "country": "United States, United Kingdom",
+                "alpha_2": "US",
+                "imdbID": "tt0468569"
+            },
+            {
+                "id": 3,
+                "name": "The Shawshank Redemption",
+                "director": "Frank Darabont",
+                "year": "1994",
+                "rating": "9.3",
+                "genre": "Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0111161",
+                "note": "Very Cool Movie!"
+            },
+            {
+                "id": 4,
+                "name": "The Lion King",
+                "director": "Roger Allers, Rob Minkoff",
+                "year": 1994,
+                "rating": 8.5,
+                "genre": "Animation, Adventure, Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0110357",
+                "note": "One of the best child movies ever"
+            },
+            {
+                "id": 5,
+                "name": "Forrest Gump",
+                "director": "Robert Zemeckis",
+                "year": "1994",
+                "rating": "8.9",
+                "genre": "Drama, Romance",
+                "img": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0109830"
+            },
+            {
+                "id": 6,
+                "name": "Ice Age",
+                "director": "Chris Wedge, Carlos Saldanha",
+                "year": "2002",
+                "rating": "7.5",
+                "genre": "Animation, Adventure, Comedy",
+                "img": "https://m.media-amazon.com/images/M/MV5BOGEwMTQyMDktMWUwZC00MzExLTg1MGMtYWJiNWNhMzIyMGU5XkEyXkFqcGdeQXVyOTYyMTY2NzQ@._V1_SX300.jpg",
+                "country": "United States, France, Canada",
+                "alpha_2": "US",
+                "imdbID": "tt0268380",
+                "note": "Great movie!"
+            },
+            {
+                "id": 8,
+                "name": "Pulp Fiction",
+                "director": "Quentin Tarantino",
+                "year": 1994,
+                "rating": 8.9,
+                "genre": "Crime, Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0110912"
+            },
+            {
+                "id": 9,
+                "name": "The Godfather",
+                "rating": 9.2,
+                "year": 1972,
+                "genre": "Crime, Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+                "director": "Francis Ford Coppola",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0068646"
+            },
+            {
+                "id": 10,
+                "name": "The Godfather Part II",
+                "rating": 9.0,
+                "year": 1974,
+                "genre": "Crime, Drama",
+                "img": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+                "director": "Francis Ford Coppola",
+                "country": "United States",
+                "alpha_2": "US",
+                "imdbID": "tt0071562"
+            },
+            {
+                "name": "The Prestige",
+                "rating": "8.5",
+                "year": "2006",
+                "genre": "Drama, Mystery, Sci-Fi",
+                "img": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg",
+                "director": "Christopher Nolan",
+                "country": "United Kingdom, United States",
+                "alpha_2": "GB",
+                "imdbID": "tt0482571",
+                "id": 11,
+                "note": "Very interesting movie"
+            },
+            {
+                "name": "Interstellar",
+                "rating": "8.7",
+                "year": "2014",
+                "genre": "Adventure, Drama, Sci-Fi",
+                "img": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+                "director": "Christopher Nolan",
+                "country": "United States, United Kingdom, Canada",
+                "alpha_2": "US",
+                "imdbID": "tt0816692",
+                "id": 12
+            },
+            {
+                "name": "Gravity",
+                "rating": 7.7,
+                "year": 2013,
+                "genre": "Drama, Sci-Fi, Thriller",
+                "img": "https://m.media-amazon.com/images/M/MV5BNjE5MzYwMzYxMF5BMl5BanBnXkFtZTcwOTk4MTk0OQ@@._V1_SX300.jpg",
+                "director": "Alfonso Cuar\u00f3n",
+                "country": "United Kingdom, United States",
+                "alpha_2": "GB",
+                "imdbID": "tt1454468",
+                "id": 13
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Lina",
+        "email": "evilina@gmail.com",
+        "hashed_password": "",
+        "movies": []
+    }
+]

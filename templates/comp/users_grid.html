@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+    <div class="col-sm-4 user-list">
+      <h2 class="text-center">Users</h2>
+      <ul class="list-group">
+        {% for user in users %}
+          <li class="list-group-item">
+              <a href="{{ url_for('main.user_public_profile', user_id=user.id) }}">
+                <div class="d-flex align-items-center">
+                  <img src="{{ user.profile_img }}" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                  <div>
+                    <h5>{{ user.name }}</h5>
+                  </div>
+                </div>
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+</div>

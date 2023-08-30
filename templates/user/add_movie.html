@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2 class="text-center mb-4">Add Movie</h2>
+      <form method="POST" action="{{ url_for('user.add_movie') }}">
+        <div class="mb-3">
+          <label for="title" class="form-label">Movie Title <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+          <label for="release_year" class="form-label">Release Year (optional)</label>
+          <input type="text" class="form-control" id="release_year" name="release_year">
+        </div>
+        <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Add Movie</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+{% endblock %}

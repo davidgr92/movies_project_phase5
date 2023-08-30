@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2 class="text-center mb-4">Registration</h2>
+      <form method="post" action="{{ url_for('auth.register') }}">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+          <label for="repeat_password" class="form-label">Repeat Password <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="repeat_password" name="repeat_password" required>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+{% endblock %}
