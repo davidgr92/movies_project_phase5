@@ -25,7 +25,10 @@ def all_movies():
 
 @main_bp.route('/user/<int:user_id>')
 def user_public_profile(user_id):
-    return f"User {user_id} public profile"
+    user_movies = dm.get_user_movies(user_id=user_id)
+    public_user_page = dm.get_user_by_id(user_id)
+    return render_template("user/profile.html", user_movies=user_movies, user=public_user_page)
+    # return f"User {user_id} public profile"
 
 
 @main_bp.app_errorhandler(404)

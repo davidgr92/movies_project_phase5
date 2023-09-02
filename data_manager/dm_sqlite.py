@@ -10,7 +10,7 @@ from apis.omdb_api import MovieAPIConnection
 class SqliteDataManager(DataManagerInterface):
     def __init__(self, db_session):
         self.db_session = db_session
-        self.query = self.db_session.query
+        self.query = db_session.query
 
     @staticmethod
     def passwords_match(password, repeat_password):
@@ -35,6 +35,20 @@ class SqliteDataManager(DataManagerInterface):
         """Checks if movie exists in database, if it does then returns it"""
         return Movie.query.filter(Movie.name.ilike(movie_name)).first()
 
+    # @staticmethod
+    def get_movie_by_id(self, movie_id, join=False):
+        """Returns a user entry based on user id"""
+        if join:
+            return self.query(Movie, UserMovies).join(UserMovies).filter_by(
+                movie_id=int(movie_id)).first()
+        return Movie.query.filter_by(id=int(movie_id)).first()
+
+    @staticmethod
+    def get_user_movie_by_ids(user_id, movie_id):
+        """Returns a user entry based on user id"""
+        return UserMovies.query.filter_by(user_id=int(user_id),
+                                          movie_id=int(movie_id)).first()
+
     def is_email_unique(self, email):
         """Check that email is not in users database"""
         user = self.get_user_by_email(email)
@@ -43,9 +57,10 @@ class SqliteDataManager(DataManagerInterface):
         flash("Email already exists", "danger")
         return False
 
-    def save_data(self, new_data):
+    def save_data(self, new_data=None):
         """Saves the provided data to database"""
-        self.db_session.add(new_data)
+        if new_data:
+            self.db_session.add(new_data)
         self.db_session.commit()
 
     def get_all_entries_db(self, db_model):
@@ -133,8 +148,24 @@ class SqliteDataManager(DataManagerInterface):
         self.save_data(movie_obj)
         flash(f"Successfully registered {movie_obj.name} to database", "success")
 
+    def update_user_movie(self, user_id, movie_id, update_dict):
+        """Update a movie from specific user in UserMovies database"""
+        user_movie = self.get_user_movie_by_ids(user_id, movie_id)
+        user_rating = update_dict.get("user_rating")
+        user_note = update_dict.get("note")
+        if user_rating:
+            user_movie.user_rating = user_rating
+
+        if user_note != "":
+            user_movie.user_note = user_note
+
+        if user_rating or user_note != "":
+            self.save_data()
+            flash("Successfully updated entry", "success")
+
     def delete_user_movie(self, user_id, movie_id):
         """Deletes a movie from specific user in data file"""
-
-    def update_user_movie(self, user_id, movie_id, update_dict):
-        """Update a movie from specific user in data file"""
+        user_movie = self.get_user_movie_by_ids(user_id, movie_id)
+        self.db_session.delete(user_movie)
+        self.save_data()
+        flash("User favorite movie successfully deleted", "success")

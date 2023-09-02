@@ -65,7 +65,7 @@ class UserMovies(db.Model):
     movie_id = db.Column(db.Integer, db.ForeignKey("movies.id"),
                          nullable=False)
     user_rating = db.Column(db.Float)
-    user_note = db.Column(db.Float)
+    user_note = db.Column(db.String)
 
     __table_args__ = (db.PrimaryKeyConstraint(user_id, movie_id,),)
 

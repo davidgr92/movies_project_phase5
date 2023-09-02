@@ -45,7 +45,7 @@ def login():
         user = dm.authenticate_login(request.form)
         if user:
             login_user(user)
-            return redirect(url_for("main.home"))
+            return redirect(url_for("user.profile"))
         else:
             flash("Invalid email and/or password.", "danger")
     return render_template("auth/login.html")

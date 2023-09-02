@@ -1,31 +1,25 @@
 <div class="row justify-content-center">
-  {% if movies|length == 0 %}
+  {% if user_movies|length == 0 and movies|length == 0 %}
   <div class="col-sm-4">
     <h2 class="text-center">No movies found</h2>
-    <p id="empty-user-movies">Would you like to add some?</p>
-    <div class="d-grid">
-      <a class="btn btn-primary btn-lg btn-block" href="">Add New Movie</a>
-    </div>
+    {% if user == current_user %}
+      <p id="empty-user-movies">Would you like to add some?</p>
+      <div class="d-grid">
+          <a class="btn btn-primary btn-lg btn-block" href="{{ url_for('user.add_movie') }}">Add New Movie</a>
+      </div>
+    {% endif %}
   </div>
   {% else %}
     <ol class="movie-grid">
-    {% for movie in movies %}
-      <li class="mov-tooltip">
-        <div class="movie">
-          <a href="https://www.imdb.com/title/{{ movie.imdbID }}/" target="_blank">
-            <div class="ribbon-wrapper"><div class="ribbon">{{ movie.imdb_rating }}/10</div></div>
-            <img class="movie-poster" src="{{ movie.img }}">
-          </a>
-          <div class="movie-info">
-            <div class="movie-text">
-              <h4 class="movie-title">{{ movie.name }}</h4>
-              <p class="movie-year">{{ movie.release_year }}</p>
-            </div>
-            <img class="country" src="https://flagsapi.com/{{ movie.country_alpha_2 }}/flat/64.png">
-          </div>
-        </div>
-      </li>
-    {% endfor %}
+      {% if user_movies %}
+        {% for user_fields, movie in user_movies %}
+          {% include "comp/movie_box.html" %}
+        {% endfor %}
+      {% elif movies %}
+        {% for movie in movies %}
+          {% include "comp/movie_box.html" %}
+        {% endfor %}
+      {% endif %}
     </ol>
   {% endif %}
 </div>

@@ -1,0 +1,33 @@
+<li class="mov-tooltip">
+  <div class="movie">
+    <a href="https://www.imdb.com/title/{{ movie.imdb_id }}/" target="_blank">
+      <div class="ribbon-wrapper">
+        <div class="ribbon">
+          {% if user_fields and user_fields.user_rating %}
+            {{ user_fields.user_rating }}/10
+          {% else %}
+            {{ movie.imdb_rating }}/10
+          {% endif %}
+        </div></div>
+      <img class="movie-poster" src="{{ movie.img }}">
+      <div class="movie-info">
+        <div class="movie-text">
+          <h4 class="movie-title">{{ movie.name }}</h4>
+          <p class="movie-year">{{ movie.release_year }}</p>
+        </div>
+        <img class="country" src="https://flagsapi.com/{{ movie.country_alpha_2 }}/flat/64.png">
+      </div>
+    </a>
+    {% if user_fields and current_user == user %}
+      <div class="buttons">
+        <a href="{{ url_for('user.update_movie', movie_id=movie.id) }}" class="btn btn-info movie-btn">Update</a>
+        <form class="movie-btn" action="{{ url_for('user.delete_movie', movie_id=movie.id) }}" method="POST">
+          <button type="submit" class="btn btn-danger btn-block">Delete</button>
+        </form>
+      </div>
+      {% if user_fields.user_note %}
+        <span class="tooltip-text">{{ user_fields.user_note }}</span>
+      {% endif %}
+    {% endif %}
+  </div>
+</li>

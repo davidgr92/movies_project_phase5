@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if user != current_user %}
+    <h2 class="text-center">{{ user.name }}'s Favorite Movies</h2>
+{% else %}
+    {% include "user/settings.html" %}
+    <h2 class="text-center">My Favorite Movies</h2>
+{% endif %}
+{% include "comp/movies_grid.html" %}
+
+{% endblock %}

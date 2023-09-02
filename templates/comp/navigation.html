@@ -9,11 +9,12 @@
 
       <div class="text-end">
         {% if current_user.is_authenticated %}
-            <a href="{{ url_for('user.add_movie') }}"><button type="button" class="btn btn-success">Add Movie</button></a>
-            <a href="{{ url_for('auth.logout') }}"><button type="button" class="btn btn-danger me-2">Logout</button></a>
+            <a class="btn btn-info me-2" href="{{ url_for('user.profile') }}">My Profile</a>
+            <a class="btn btn-success me-2" href="{{ url_for('user.add_movie') }}">Add Movie</a>
+            <a class="btn btn-danger me-2" href="{{ url_for('auth.logout') }}">Logout</a>
         {% else %}
-            <a href="{{ url_for('auth.login') }}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-            <a href="{{ url_for('auth.register') }}"><button type="button" class="btn btn-success">Sign up</button></a>
+            <a class="btn btn-outline-light me-2" href="{{ url_for('auth.login') }}">Login</a>
+            <a class="btn btn-success me-2" href="{{ url_for('auth.register') }}">Sign up</a>
         {% endif %}
 
       </div>
