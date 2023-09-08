@@ -10,10 +10,10 @@ class JSONDataManager(DataManagerInterface):
         if not isfile(filename):
             self.save_data([])
 
-    def save_data(self, data) -> None:
+    def save_data(self, new_data) -> None:
         """Saves the provided data to the json data file"""
         with open(self.filename, 'w') as file:
-            file.write(json.dumps(data, indent=4))
+            file.write(json.dumps(new_data, indent=4))
 
     def get_all_users(self) -> list:
         """Returns a list of all users from data file,
@@ -73,14 +73,14 @@ class JSONDataManager(DataManagerInterface):
             if movie['id'] == movie_id:
                 return movie
 
-    def add_user_movie(self, user_id, movie_dict) -> None:
+    def add_user_movie(self, user_id, form_dict) -> None:
         """Adds a new movie to specific user in data file"""
         users_list = self.get_all_users()
         for user in users_list:
             if user['id'] == user_id:
                 movie_names = (movie['name'] for movie in user['movies'])
-                if movie_dict['name'] not in movie_names:
-                    user['movies'].append(movie_dict)
+                if form_dict['name'] not in movie_names:
+                    user['movies'].append(form_dict)
                 else:
                     raise ValueError("Movie already exists, try again")
         self.save_data(users_list)
@@ -127,5 +127,4 @@ class JSONDataManager(DataManagerInterface):
         otherwise, returns new id based on movies for specific user"""
         if user_id is None:
             return self.get_new_id(self.get_all_users())
-        else:
-            return self.get_new_id(self.get_user_movies(user_id))
+        return self.get_new_id(self.get_user_movies(user_id))

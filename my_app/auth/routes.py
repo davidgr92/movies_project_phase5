@@ -10,7 +10,7 @@ dm = SqliteDataManager(db.session)
 @login_manager.user_loader
 def load_user(user_id):
     """Fetches user by id from database and loads it to session"""
-    return dm.get_user_by_id(user_id)
+    return dm.get_entry_by_id(user_id)
 
 
 @auth_bp.route('/register', methods=["GET", "POST"])
@@ -46,8 +46,7 @@ def login():
         if user:
             login_user(user)
             return redirect(url_for("user.profile"))
-        else:
-            flash("Invalid email and/or password.", "danger")
+        flash("Invalid email and/or password.", "danger")
     return render_template("auth/login.html")
 
 

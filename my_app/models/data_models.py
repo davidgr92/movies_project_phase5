@@ -44,7 +44,8 @@ class User(UserMixin, db.Model):
         self.email = email
         self.password = bcrypt.generate_password_hash(password)
         self.name = name
-        self.profile_img = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+        self.profile_img = "https://cdn.pixabay.com/photo/2015/10/" \
+                           "05/22/37/blank-profile-picture-973460_1280.png"
 
     def __repr__(self):
         return f"<User(id = {self.id}, email = {self.email})>"
@@ -64,8 +65,8 @@ class UserMovies(db.Model):
                         nullable=False)
     movie_id = db.Column(db.Integer, db.ForeignKey("movies.id"),
                          nullable=False)
-    user_rating = db.Column(db.Float)
-    user_note = db.Column(db.String)
+    review_id = db.Column(db.Integer, db.ForeignKey("reviews.id"),
+                          nullable=True)
 
     __table_args__ = (db.PrimaryKeyConstraint(user_id, movie_id,),)
 
@@ -75,3 +76,22 @@ class UserMovies(db.Model):
 
     def __str__(self):
         return f"User: {self.user_id}, Movie: {self.movie_id}"
+
+
+class Review(db.Model):
+    """
+    Review model class, which sets the columns for "reviews" table.
+    Represents reviews for movies.
+    """
+    __tablename__ = "reviews"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    text = db.Column(db.String)
+    rating = db.Column(db.Float, nullable=False)
+    short_note = db.Column(db.String(60))
+
+    def __repr__(self):
+        return f"<Review(id = {self.id})>"
+
+    def __str__(self):
+        return f"review: {self.id}"

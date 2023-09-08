@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <img src="{{ movie.img }}" alt="{{ movie.name }}" class="img-fluid">
+    </div>
+    <div class="col-md-3">
+      <h2 class="mb-4">{{ movie.name }} ({{ movie.release_year }})</h2>
+      <div class="mb-3">
+        <strong>Genre:</strong> {{ movie.genre }}
+      </div>
+      <div class="mb-3">
+        <strong>Director:</strong> {{ movie.director }}
+      </div>
+      <div class="mb-3">
+        <strong>Country:</strong> {{ movie.country }}
+      </div>
+      <a href="https://www.imdb.com/title/{{ movie.imdb_id }}/" class="btn btn-warning" target="_blank">Imdb page</a>
+    </div>
+  </div>
+{% endblock %}

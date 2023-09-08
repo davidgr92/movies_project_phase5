@@ -1,10 +1,14 @@
 <li class="mov-tooltip">
   <div class="movie">
-    <a href="https://www.imdb.com/title/{{ movie.imdb_id }}/" target="_blank">
+    {% if review %}
+      <a href="{{ url_for('user.review_page', movie_id=movie.id) }}">
+    {% else %}
+      <a href="{{ url_for('main.movie_page', movie_id=movie.id) }}">
+    {% endif %}
       <div class="ribbon-wrapper">
         <div class="ribbon">
-          {% if user_fields and user_fields.user_rating %}
-            {{ user_fields.user_rating }}/10
+          {% if review and review.rating %}
+            {{ review.rating }}/10
           {% else %}
             {{ movie.imdb_rating }}/10
           {% endif %}
@@ -18,15 +22,20 @@
         <img class="country" src="https://flagsapi.com/{{ movie.country_alpha_2 }}/flat/64.png">
       </div>
     </a>
-    {% if user_fields and current_user == user %}
+    {% if current_user == user %}
       <div class="buttons">
-        <a href="{{ url_for('user.update_movie', movie_id=movie.id) }}" class="btn btn-info movie-btn">Update</a>
-        <form class="movie-btn" action="{{ url_for('user.delete_movie', movie_id=movie.id) }}" method="POST">
-          <button type="submit" class="btn btn-danger btn-block">Delete</button>
+        {% if review %}
+          <a href="{{ url_for('user.review_page', movie_id=movie.id) }}" class="btn btn-outline-primary">My Review</a>
+        {% else %}
+          <a href="{{ url_for('user.add_review', movie_id=movie.id) }}" class="btn btn-primary">Add Review</a>
+        {% endif %}
+
+        <form action="{{ url_for('user.delete_movie', movie_id=movie.id) }}" method="POST">
+          <button type="submit" class="btn btn-outline-danger">Delete</button>
         </form>
       </div>
-      {% if user_fields.user_note %}
-        <span class="tooltip-text">{{ user_fields.user_note }}</span>
+      {% if review.short_note %}
+        <span class="tooltip-text">{{ review.short_note }}</span>
       {% endif %}
     {% endif %}
   </div>

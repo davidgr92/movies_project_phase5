@@ -24,7 +24,9 @@ login_manager.login_message_category = "danger"
 from my_app.auth.routes import auth_bp
 from my_app.main.routes import main_bp
 from my_app.user.routes import user_bp
+from my_app.api.routes import api_bp
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(main_bp)
 app.register_blueprint(user_bp)
+app.register_blueprint(api_bp)

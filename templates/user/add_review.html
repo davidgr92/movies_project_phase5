@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2 class="text-center mb-4"><u>{{ movie.name }}</u></h2>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3 class="text-center mb-4">Add Movie Review</h3>
+      <form method="POST" action="{{ url_for('user.add_review', movie_id=movie.id) }}">
+        <div class="mb-3">
+          <label for="review_rating" class="form-label">Review Rating <span class="text-danger">*</span></label>
+          <input type="number" class="form-control" min="0" max="10" step="0.1"
+                 id="review_rating" name="review_rating" required>
+        </div>
+        <div class="mb-3">
+          <label for="review_text" class="form-label">Review Text <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="review_text" name="review_text" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="short_note" class="form-label">Tooltip Note (up to 60 chars)</label>
+          <input type="text" class="form-control" id="short_note" name="short_note"
+          maxlength = "60">
+        </div>
+        <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Add Movie Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

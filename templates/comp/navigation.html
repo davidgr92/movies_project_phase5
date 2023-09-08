@@ -3,13 +3,13 @@
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="{{ url_for('main.home') }}" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a href="{{ url_for('main.all_movies') }}" class="nav-link px-2 text-secondary">All Movies</a></li>
+        <li><a href="{{ url_for('main.home') }}" class="nav-link px-2">Home</a></li>
+        <li><a href="{{ url_for('main.all_movies') }}" class="nav-link px-2">All Movies</a></li>
       </ul>
 
       <div class="text-end">
         {% if current_user.is_authenticated %}
-            <a class="btn btn-info me-2" href="{{ url_for('user.profile') }}">My Profile</a>
+            <a class="btn btn-primary me-2" href="{{ url_for('user.profile') }}">My Profile</a>
             <a class="btn btn-success me-2" href="{{ url_for('user.add_movie') }}">Add Movie</a>
             <a class="btn btn-danger me-2" href="{{ url_for('auth.logout') }}">Logout</a>
         {% else %}

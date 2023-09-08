@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <img src="{{ movie.img }}" alt="{{ movie.name }}" class="img-fluid">
+    </div>
+    <div class="col-md-3">
+      <h2 class="mb-4">{{ movie.name }} ({{ movie.release_year }})</h2>
+      <h4 class="mb-4">by {{ user.name }}</h4>
+      <div class="mb-3">
+        <strong>Rating:</strong> {{ review.rating }}
+      </div>
+
+      {% if review.short_note %}
+      <div class="mb-3">
+        <strong>Short Note:</strong> {{ review.short_note }}
+      </div>
+      {% endif %}
+
+      <div>
+        <strong>Review:</strong> {{ review.text }}
+      </div>
+
+      <div class="mt-4">
+        <a href="{{ url_for('user.add_review', movie_id=movie.id) }}" class="btn btn-primary">Update Review</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

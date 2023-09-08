@@ -1,5 +1,9 @@
-.nav-link:hover {
+a.nav-link {
     color: white;
+}
+
+a.nav-link:hover {
+    color: grey;
 }
 
 /* ======= Movies grid CSS ======= */
@@ -78,10 +82,6 @@
 .country {
   width: 22%;
   height: 2.5em;
-}
-
-.movie-btn {
-  width: 45%;
 }
 
 #empty-user-movies {

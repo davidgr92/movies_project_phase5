@@ -12,7 +12,7 @@
   {% else %}
     <ol class="movie-grid">
       {% if user_movies %}
-        {% for user_fields, movie in user_movies %}
+        {% for _, movie, review in user_movies %}
           {% include "comp/movie_box.html" %}
         {% endfor %}
       {% elif movies %}

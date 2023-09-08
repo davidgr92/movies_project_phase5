@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2 class="text-center mb-4"><u>Update User - {{ user.name }}</u></h2>
+  {% include "comp/user_details_table.html" %}
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <h4 class="text-center mb-4">Update User Details</h4>
+      <form method="POST" action="{{ url_for('user.update_user') }}">
+        <div class="mb-3">
+          <label for="user_name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="user_name" name="user_name" value="">
+        </div>
+        <div class="mb-3">
+          <label for="user_email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="user_email" name="user_email"
+                 value="">
+        </div>
+        <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Update User</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-3">
+      <h4 class="text-center mb-4">Change Password</h4>
+      <form method="POST" action="{{ url_for('user.change_password') }}">
+        <div class="mb-3">
+          <label for="current_password" class="form-label">Current Password <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="current_password" name="current_password">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="mb-3">
+          <label for="repeat_password" class="form-label">Repeat Password <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="repeat_password" name="repeat_password">
+        </div>
+        <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Change Password</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+{% endblock %}

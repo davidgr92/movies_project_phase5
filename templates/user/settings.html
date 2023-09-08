@@ -1,3 +1,12 @@
-<div class="text-center">
-    <h3>User Settings</h3>
+<div class="row justify-content-center">
+    <h3 class="text-center mb-3">User Settings</h3>
+      {% include "comp/user_details_table.html" %}
+    <div class="col-md-4 text-center mb-5">
+        <div class="d-flex flex-row justify-content-center">
+            <form method="POST" action="{{ url_for('user.delete_user') }}">
+                <button type="submit" class="btn btn-outline-danger btn-sm me-2">Delete User</button>
+            </form>
+            <a href="{{ url_for('user.update_user') }}" class="btn btn-primary btn-sm me-2">Update User</a>
+        </div>
+    </div>
 </div>

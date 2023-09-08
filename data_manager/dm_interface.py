@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class DataManagerInterface(ABC):
     """Data Manager Interface blueprint class"""
     @abstractmethod
-    def save_data(self, file_data):
+    def save_data(self, new_data):
         """Saves the provided data to file"""
 
     def get_all_users(self):
@@ -29,7 +29,7 @@ class DataManagerInterface(ABC):
         each movie data as a dict object."""
 
     @abstractmethod
-    def add_user_movie(self, user_id, movie_dict):
+    def add_user_movie(self, user_id, form_dict):
         """Adds a new movie to specific user in data file"""
 
     @abstractmethod
